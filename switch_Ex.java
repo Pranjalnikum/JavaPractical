@@ -48,20 +48,27 @@ public class switch_Ex{
                 String name = scanner.next();
                 System.out.println("Enter age:");
                 int age = scanner.nextInt();
-                System.out.println("Enter gender (Male/Female):");
+                System.out.println("Enter gender (male/female):");
                 String gender = scanner.next();
                 System.out.println("Enter principal amount:");
                 double principal = scanner.nextDouble();
+        
                 double roi;
                 if (age >= 60) {
                     if (gender.equalsIgnoreCase("male")) {
-                        roi = 7;
-                    } else {
+                        roi = 7.0;
+                    } else if (gender.equalsIgnoreCase("female")) {
                         roi = 7.5;
+                    } else {
+                        System.out.println("Invalid gender input. Using default ROI.");
+                        roi = 0; 
                     }
+                } else if (age < 50) {
+                    roi = 5.0;
                 } else {
-                    roi = 5;
+                    roi = 0; 
                 }
+        
                 double balance = principal * (1 + roi / 100);
                 System.out.println("Account balance after one year: " + balance);
                 break;
